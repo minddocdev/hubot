@@ -1,0 +1,12 @@
+[
+  "hubot-diagnostics",
+  "hubot-fliptable",
+  "hubot-google-images",
+  "hubot-help",
+  "hubot-http-status",
+  "hubot-maps",
+  "hubot-pugme",
+  "hubot-redis-brain",
+  "hubot-rules",
+  "hubot-standup-alarm"
+]
