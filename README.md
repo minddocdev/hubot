@@ -1,5 +1,7 @@
 # Hubot docker image
 
+[![Build Status](https://travis-ci.org/mind-doc/hubot.svg?branch=master)](https://travis-ci.org/mind-doc/hubot)
+
 Run hubot 3.0.x with Slack and Redis functionality in a docker container
 
 ## Build
