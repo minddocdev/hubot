@@ -1,0 +1,27 @@
+---
+services:
+  - docker
+
+stages:
+  - build
+  - name: deploy
+    if: branch = master
+
+jobs:
+  include:
+    - stage: lint
+      script:
+        # Lint the Dockerfile
+        - docker run -it --rm -v "${PWD}/Dockerfile:/Dockerfile:ro" redcoolbeans/dockerlint
+    - stage: deploy
+      script:
+        # Build the docker image
+        - docker build -t minddocdev/hubot:${TRAVIS_COMMIT} .
+        # Tag the docker image
+        - docker tag minddocdev/hubot:${TRAVIS_COMMIT} minddocdev/hubot:0.1.${TRAVIS_BUILD_NUMBER}
+        - docker tag minddocdev/hubot:${TRAVIS_COMMIT} minddocdev/hubot:latest
+        # Push the docker image to Docker Hub
+        - docker login -u "${DOCKER_USER}" -p "${DOCKER_PASS}"
+        - docker push minddocdev/hubot:${TRAVIS_COMMIT}
+        - docker push minddocdev/hubot:0.1.${TRAVIS_BUILD_NUMBER}
+        - docker push minddocdev/hubot:latest
