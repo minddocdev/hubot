@@ -1,4 +1,8 @@
 ---
+env:
+  DOCKER_IMAGE=minddocdev/hubot
+  DOCKER_TAG=0.1.9
+
 services:
   - docker
 
@@ -16,12 +20,10 @@ jobs:
     - stage: deploy
       script:
         # Build the docker image
-        - docker build -t minddocdev/hubot:${TRAVIS_COMMIT} .
+        - docker build -t $DOCKER_IMAGE:$DOCKER_TAG .
         # Tag the docker image
-        - docker tag minddocdev/hubot:${TRAVIS_COMMIT} minddocdev/hubot:0.1.${TRAVIS_BUILD_NUMBER}
-        - docker tag minddocdev/hubot:${TRAVIS_COMMIT} minddocdev/hubot:latest
+        - docker tag $DOCKER_IMAGE:$DOCKER_TAG $DOCKER_IMAGE:latest
         # Push the docker image to Docker Hub
         - docker login -u "${DOCKER_USER}" -p "${DOCKER_PASS}"
-        - docker push minddocdev/hubot:${TRAVIS_COMMIT}
-        - docker push minddocdev/hubot:0.1.${TRAVIS_BUILD_NUMBER}
-        - docker push minddocdev/hubot:latest
+        - docker push $DOCKER_IMAGE:$DOCKER_TAG
+        - docker push $DOCKER_IMAGE:latest
