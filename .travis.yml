@@ -7,7 +7,7 @@ services:
   - docker
 
 stages:
-  - build
+  - lint
   - name: deploy
     if: branch = master
 
