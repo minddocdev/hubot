@@ -2,42 +2,70 @@
 
 [![Build Status](https://travis-ci.org/minddocdev/hubot.svg?branch=master)](https://travis-ci.org/mind-doc/hubot)
 
-Run hubot 3.0.x with Slack and Redis functionality in a docker container
-
-## Build
-
-```
-$ docker build -t minddocdev/hubot .
-```
-
-## Run
-
-```
-$ docker run -d minddocdev/hubot
-```
+Lightweight alpine docker image that runs hubot 3.0.x with Slack.
 
 ## Configuration
 
-The following environment variables are required if you want to use all the initial functionality
+The following environment variables should be provided if you want to use Hubot.
 
-### Slack adapter
+* HUBOT_SLACK_TOKEN - Required Slack hubot integration API token.
+  See [hubot-slack documentation](https://slack.dev/hubot-slack/).
+* HUBOT_NAME - Optional bot name.
+  Defaults to `robot`.
+* HUBOT_OWNER - Optional bot owner name.
+  Defaults to `MindDoc <development@minddoc.com>`.
+* HUBOT_DESCRIPTION - Optional bot description.
+  Defaults to `A robot may not harm humanity, or, by inaction, allow humanity to come to harm`.
+* EXTRA_PACKAGES - Optional comma-separated list of NPM packages, required by your scripts.
 
-* HUBOT_SLACK_TOKEN - Your Slack hubot integration API token
+## Docker Hub
 
-### Google Images
+### `docker pull`
 
-* HUBOT_GOOGLE_CSE_KEY - Your Google developer API key
-* HUBOT_GOOGLE_CSE_ID - The ID of your Custom Search Engine
-* HUBOT_MUSTACHIFY_URL - Optional. Allow you to use your own mustachify instance.
-* HUBOT_GOOGLE_IMAGES_HEAR - Optional. If set, bot will respond to any line that begins with "image me" or "animate me" without needing to address the bot directly
-* HUBOT_GOOGLE_SAFE_SEARCH - Optional. Search safety level.
-* HUBOT_GOOGLE_IMAGES_FALLBACK - The URL to use when API fails. `{q}` will be replaced with the query string.
+You can pull the image from Docker Hub using the `docker pull minddocdev/hubot` command.
+We use [automated build set up](https://docs.docker.com/docker-hub/builds/#create-an-automated-build).
 
-### Google Maps
+```sh
+docker pull minddocdev/hubot
+```
 
-* HUBOT_GOOGLE_API_KEY - Your maps API key ([how to get one](https://developers.google.com/maps/documentation/javascript/tutorial#api_key))
+### `docker build`
 
-### Standup Alarm
+You can also build the image yourself. Checkout the repository
 
-* HUBOT_STANDUP_PREPEND - Optional. Defines a string that will be prepended to the alert messages Hubot sends. Typically, you'd use this to trigger an alert to everybody (like @channel).
-* HUBOT_STANDUP_WEEKDAYS - Optional. Days the standup check fires on. It defaults to `1-5` (Monday-Friday)
+```sh
+git clone https://github.com/minddocdev/hubot
+cd hubot
+docker build -t minddocdev/hubot .
+docker images minddocdev/hubot
+```
+
+### `docker run`
+
+To jump into the container's `bash` shell
+
+```sh
+docker run -it minddocdev/hubot /bin/sh
+```
+
+#### With extra npm packages
+
+Just define the `EXTRA_PACKAGES` environment variable.
+
+```sh
+docker run -ti -e EXTRA_PACKAGES=aws-sdk,cron minddocdev/hubot /bin/sh
+```
+
+#### With extra scripts
+
+Mount `external-scripts.json` as a volume:
+
+```sh
+docker run -ti -v ${PWD}/external-scripts.json:/hubot/external-scripts.json minddocdev/hubot /bin/sh
+```
+
+## Links
+
+* [Docker Hub `minddocdev/hubot`](https://hub.docker.com/r/minddocdev/flutter)
+* [GitHub `minddocdev/hubot`](https://github.com/minddocdev/hubot)
+* [decayofmind/hubot-docker](https://github.com/decayofmind/hubot-docker) (load scripts inspiration)
