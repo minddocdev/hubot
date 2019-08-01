@@ -8,15 +8,15 @@ Lightweight alpine docker image that runs hubot 3.0.x with Slack.
 
 The following environment variables should be provided if you want to use Hubot.
 
-* HUBOT_SLACK_TOKEN - Required Slack hubot integration API token.
+* `HUBOT_SLACK_TOKEN` - Required Slack hubot integration API token.
   See [hubot-slack documentation](https://slack.dev/hubot-slack/).
-* HUBOT_NAME - Optional bot name.
+* `HUBOT_NAME` - Optional bot name.
   Defaults to `robot`.
-* HUBOT_OWNER - Optional bot owner name.
+* `HUBOT_OWNER` - Optional bot owner name.
   Defaults to `MindDoc <development@minddoc.com>`.
-* HUBOT_DESCRIPTION - Optional bot description.
+* `HUBOT_DESCRIPTION` - Optional bot description.
   Defaults to `A robot may not harm humanity, or, by inaction, allow humanity to come to harm`.
-* EXTRA_PACKAGES - Optional comma-separated list of NPM packages, required by your scripts.
+* `EXTRA_PACKAGES` - Optional comma-separated list of NPM packages, required by your scripts.
 
 ## Docker Hub
 
