@@ -20,9 +20,9 @@ Each docker image tag points to a specific Hubot 3.x version.
 | [v3.1.0](https://github.com/hubotio/hubot/releases/tag/v3.3.0) | [3.1.0](https://www.npmjs.com/package/hubot/v/3.1.0) | `3.1.0`           |
 | [v3.0.1](https://github.com/hubotio/hubot/releases/tag/v3.3.0) | [3.0.1](https://www.npmjs.com/package/hubot/v/3.0.1) | `3.0.1`           |
 | [v3.0.0](https://github.com/hubotio/hubot/releases/tag/v3.3.0) | [3.0.0](https://www.npmjs.com/package/hubot/v/3.0.0) | `3.0.0`           |
-| [v3.0.0](https://github.com/hubotio/hubot/releases/tag/v3.3.0) | [3.0.0](https://www.npmjs.com/package/hubot/v/3.0.0) | `3.0.0`           |
 
-WARNING: The `0.1.9` tag is kept for compatibility reasons (especially a dependency with the [Hubot Helm Chart](https://github.com/helm/charts/tree/master/stable/hubot)).
+WARNING: The `0.1.9` tag is kept for compatibility reasons (especially a dependency with the [Hubot Helm Chart](https://github.com/helm/charts/tree/master/stable/hubot)),
+and does not come with the `EXTRA_PACKAGES` and `external-scripts.json` load functionality.
 It will be removed at some point!
 
 ## Configuration
