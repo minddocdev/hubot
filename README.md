@@ -1,8 +1,25 @@
 # Hubot docker image
 
-[![Build Status](https://travis-ci.org/minddocdev/hubot.svg?branch=master)](https://travis-ci.org/mind-doc/hubot)
+[![Build Status](https://travis-ci.org/minddocdev/hubot.svg?branch=master)](https://travis-ci.org/minddocdev/hubot)
 
-Lightweight alpine docker image that runs hubot 3.0.x with Slack.
+Lightweight alpine docker image that runs hubot 3.x+ with Slack.
+
+## Version specification
+
+See [full tags list](https://cloud.docker.com/u/minddocdev/repository/docker/minddocdev/hubot/tags).
+
+Each docker image tag points to a specific Hubot 3.x version.
+
+| Git Tag                                                        | NPM Tag                                              | Docker Tags       |
+| :------------------------------------------------------------: |:----------------------------------------------------:| :----------------:|
+| [v3.3.2](https://github.com/hubotio/hubot/releases/tag/v3.3.2) | [3.3.2](https://www.npmjs.com/package/hubot/v/3.3.2) | `3.3.2`, `latest` |
+| [v3.3.1](https://github.com/hubotio/hubot/releases/tag/v3.3.1) | [3.3.1](https://www.npmjs.com/package/hubot/v/3.3.1) | `3.3.1`           |
+| [v3.3.0](https://github.com/hubotio/hubot/releases/tag/v3.3.0) | [3.3.0](https://www.npmjs.com/package/hubot/v/3.3.0) | `3.3.0`           |
+| [v3.2.0](https://github.com/hubotio/hubot/releases/tag/v3.3.0) | [3.2.0](https://www.npmjs.com/package/hubot/v/3.2.0) | `3.2.0`           |
+| [v3.1.1](https://github.com/hubotio/hubot/releases/tag/v3.3.0) | [3.1.1](https://www.npmjs.com/package/hubot/v/3.1.1) | `3.1.1`           |
+| [v3.1.0](https://github.com/hubotio/hubot/releases/tag/v3.3.0) | [3.1.0](https://www.npmjs.com/package/hubot/v/3.1.0) | `3.1.0`           |
+| [v3.0.1](https://github.com/hubotio/hubot/releases/tag/v3.3.0) | [3.0.1](https://www.npmjs.com/package/hubot/v/3.0.1) | `3.0.1`           |
+| [v3.0.0](https://github.com/hubotio/hubot/releases/tag/v3.3.0) | [3.0.0](https://www.npmjs.com/package/hubot/v/3.0.0) | `3.0.0`           |
 
 ## Configuration
 
