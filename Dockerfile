@@ -38,7 +38,7 @@ RUN yo hubot\
  --name="$HUBOT_NAME"\
  --description="$HUBOT_DESCRIPTION"\
  --defaults
-ARG HUBOT_VERSION="3.3.2"
+ARG HUBOT_VERSION="3.0.1"
 RUN jq --arg HUBOT_VERSION "$HUBOT_VERSION" '.dependencies.hubot = $HUBOT_VERSION' package.json > /tmp/package.json\
  && mv /tmp/package.json .
 
