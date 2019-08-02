@@ -8,8 +8,8 @@ fi
 printf "\\n********* Installing packages from external-scripts.json *********\\n"
 npm install --save $(jq -r '.[]' ./external-scripts.json | paste -sd" " -)
 
-HUBOT_VERSION=$(jq -r '.version' package.json)
+HUBOT_VERSION=$(jq -r '.dependencies.hubot' package.json)
 
-printf "\\n****************** Starting %s (Hubot %s) ******************\\n" "$HUBOT_NAME" "$HUBOT_VERSION"
+printf "\\n****************** Starting %s (Hubot %s) ******************\\n" "$HUBOT_NAME" "${HUBOT_VERSION}"
 
 bin/hubot "$@"

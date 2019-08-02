@@ -12,7 +12,7 @@ FROM node:lts-alpine
 
 LABEL maintainer="development@minddoc.com"
 
-# Install hubot 3.x dependencies
+# Install hubot dependencies
 RUN apk update\
  && apk upgrade\
  && apk add jq\
@@ -24,10 +24,11 @@ RUN addgroup -g 501 hubot\
  && adduser -D -h /hubot -u 501 -G hubot hubot
 ENV HOME /hubot
 WORKDIR /hubot
+COPY entrypoint.sh ./
 RUN chown -R hubot:hubot .
 USER hubot
 
-# Install hubot
+# Install hubot version HUBOT_VERSION
 ENV HUBOT_NAME "robot"
 ENV HUBOT_OWNER "MindDoc <development@minddoc.com>"
 ENV HUBOT_DESCRIPTION "A robot may not harm humanity, or, by inaction, allow humanity to come to harm"
@@ -37,10 +38,11 @@ RUN yo hubot\
  --name="$HUBOT_NAME"\
  --description="$HUBOT_DESCRIPTION"\
  --defaults
+ARG HUBOT_VERSION="3.3.2"
+RUN jq --arg hubot_version "$HUBOT_VERSION" '.dependencies.hubot = $hubot_version' package.json > /tmp/package.json\
+ && mv /tmp/package.json .
 
 EXPOSE 80
-
-COPY entrypoint.sh ./
 
 ENTRYPOINT ["./entrypoint.sh"]
 
