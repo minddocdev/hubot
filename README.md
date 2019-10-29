@@ -87,6 +87,6 @@ docker run -ti -v ${PWD}/external-scripts.json:/hubot/external-scripts.json mind
 
 ## Links
 
-* [Docker Hub `minddocdev/hubot`](https://hub.docker.com/r/minddocdev/flutter)
+* [Docker Hub `minddocdev/hubot`](https://hub.docker.com/r/minddocdev/hubot)
 * [GitHub `minddocdev/hubot`](https://github.com/minddocdev/hubot)
 * [decayofmind/hubot-docker](https://github.com/decayofmind/hubot-docker) (load scripts inspiration)
